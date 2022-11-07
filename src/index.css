@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* https://stackoverflow.com/a/71889746/4224964 */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.app {
+	--bg-shade-1: initial;
+	--bg-shade-2: initial;
+	--bg-shade-3: initial;
+	--bg-shade-4: initial;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bg-shade-1 {
+	background: var(--bg-shade-1);
+}
+.bg-shade-2 {
+	background: var(--bg-shade-2);
+}
+.bg-shade-3 {
+	background: var(--bg-shade-3);
+}
+.bg-shade-4 {
+	background: var(--bg-shade-4);
+}
+.border-shade-1 {
+	border-color: var(--bg-shade-1);
+}
+.border-shade-2 {
+	border-color: var(--bg-shade-2);
+}
+.border-shade-3 {
+	border-color: var(--bg-shade-3);
+}
+.border-shade-4 {
+	border-color: var(--bg-shade-4);
+}
+
+.code-badge {
+	background: pink !important;
+}
+
+.code-badge-language {
+	color: orangered !important;
+}
+
+.code-badge-copy-icon{
+	font-size: 1.6em !important;
 }
