@@ -3,11 +3,14 @@ import 'highlightjs-badge/highlightjs-badge';
 import { createContext, useEffect, useRef, useState } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
-import Docs from './Routes/Docs';
-import Home from './Routes/Home';
+import Docs from './Routes/Docs/Docs.js';
+import Home from './Routes/Home/Home.js';
 import { initialLocalStorageState } from './utils/constants';
 import { rgbAddA } from './utils/utils';
 import rgbaToRgb from 'rgba-to-rgb';
+import ExtensionsApi from './Routes/ExtensionsApi/ExtensionsApi.js';
+import axios from 'axios';
+// import jwa  from 'jwa';
 
 export const GlobalContext = createContext();
 const localStorageKey = 'actions-file-manager.dev';
@@ -31,6 +34,45 @@ function App() {
 			window.matchMedia('(prefers-color-scheme: dark)').matches
 	);
 	const appRef = useRef();
+
+	// create token on page creation
+	useEffect(() => {
+		const asyncFunc = async () => {
+			const getToken = await axios({
+				method: 'get',
+				url: 'https://api.actions-file-manager.dev/getToken',
+			});
+
+			const { token } = getToken.data;
+			window.localStorage.setItem('token', token);
+
+			const axiosInstance = axios.create({
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			// setTimeout(async () => {
+			// 	const getRootUserFolder = await axiosInstance({
+			// 		method: 'post',
+			// 		url: 'https://demo.actions-file-manager.dev/getRootUserFolder',
+			// 	});
+
+			// 	const initialize = await axiosInstance({
+			// 		method: 'post',
+			// 		url: 'https://demo.actions-file-manager.dev/initialize',
+			// 		data: {
+			// 			folderId: getRootUserFolder.id,
+			// 		},
+			// 	});
+			// }, 1000);
+		};
+		asyncFunc();
+
+		// setTimeout(()=> {
+
+		// }, 500)
+	}, []);
 
 	useEffect(() => {
 		const eventHandler = (e) => {
@@ -88,10 +130,6 @@ function App() {
 		}
 	}, [theme]);
 
-	useEffect(() => {
-		console.log({ theme });
-	}, [theme]);
-
 	const value = {
 		localStorage,
 		setLocalStorage,
@@ -102,16 +140,19 @@ function App() {
 		<GlobalContext.Provider value={value}>
 			<div
 				ref={appRef}
-				className="App container mx-auto px-4 bg-shade-4"
+				className="App w-full h-screen bg-shade-1"
 				style={{ color: theme === 'dark' ? 'white' : 'black' }}
 			>
-				<BrowserRouter>
-					<NavigationBar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/docs" element={<Docs />} />
-					</Routes>
-				</BrowserRouter>
+				<div className="container mx-auto px-4">
+					<BrowserRouter>
+						<NavigationBar />
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/docs/*" element={<Docs />} />
+							{/* <Route path="/extensionsApi" element={<ExtensionsApi />} /> */}
+						</Routes>
+					</BrowserRouter>
+				</div>
 			</div>
 		</GlobalContext.Provider>
 	);
