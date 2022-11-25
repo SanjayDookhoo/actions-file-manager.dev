@@ -46,3 +46,8 @@
 .code-badge-copy-icon{
 	font-size: 1.6em !important;
 }
+
+pre{
+	padding: 20px!important;
+	margin: 0px!important;
+}

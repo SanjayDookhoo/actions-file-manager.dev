@@ -20,24 +20,24 @@ const Test4 = () => {
 
 const Docs = () => {
 	const sideMenuAndContent = [
-		{
-			path: '/docs/introduction',
-			desc: 'Introduction',
-			element: Introduction,
-		},
+		// {
+		// 	path: '/docs/introduction',
+		// 	desc: 'Introduction',
+		// 	element: Introduction,
+		// },
 		{
 			path: '/docs/frontend',
 			desc: 'Frontend',
 			element: Frontend,
-			subMenu: [
-				{ path: '/test2', desc: 'test2', element: Test2 },
-				{
-					path: '/test3',
-					desc: 'test3',
-					element: Test3,
-					subMenu: [{ path: '/test4', desc: 'test4', element: Test4 }],
-				},
-			],
+			// subMenu: [
+			// 	{ path: '/test2', desc: 'test2', element: Test2 },
+			// 	{
+			// 		path: '/test3',
+			// 		desc: 'test3',
+			// 		element: Test3,
+			// 		subMenu: [{ path: '/test4', desc: 'test4', element: Test4 }],
+			// 	},
+			// ],
 		},
 		{
 			path: '/docs/backend',
@@ -54,7 +54,9 @@ const Docs = () => {
 					<SideMenu sideMenuAndContent={sideMenuAndContent} />
 				</DocsSideMenu>
 			</div>
-			<MyRoutes sideMenuAndContent={sideMenuAndContent} />
+			<div className="pl-8 pr-4">
+				<MyRoutes sideMenuAndContent={sideMenuAndContent} />
+			</div>
 		</div>
 	);
 };

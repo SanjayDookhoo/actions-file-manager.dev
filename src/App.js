@@ -1,5 +1,3 @@
-import 'highlight.js/styles/dark.css'; // the styles chosen is the theme
-import 'highlightjs-badge/highlightjs-badge';
 import { createContext, useEffect, useRef, useState } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import NavigationBar from './NavigationBar';

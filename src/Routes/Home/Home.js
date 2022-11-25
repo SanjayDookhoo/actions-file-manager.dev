@@ -6,9 +6,9 @@ const Home = () => {
 		<>
 			<div className="p-4">
 				<h1 className="text-4xl py-4 text-center">
-					A File Manager web component that can be implemented in vanilla
-					Javascript or any Javascript framework such as, React, Vue or Angular.
-					highest security.
+					A File Manager web component (custom element) that can be implemented
+					in vanilla Javascript or any Javascript framework such as, React, Vue
+					or Angular.
 				</h1>
 				<h1 className="text-xl py-4 text-center">
 					One of the most powerful features it provides are, "Custom Actions",
