@@ -140,7 +140,7 @@ function App() {
 		<GlobalContext.Provider value={value}>
 			<div
 				ref={appRef}
-				className="App w-full h-screen bg-shade-1"
+				className="App w-full min-h-screen h-full bg-shade-1"
 				style={{ color: theme === 'dark' ? 'white' : 'black' }}
 			>
 				<div className="container mx-auto px-4">
@@ -151,6 +151,7 @@ function App() {
 							<Route path="/docs/*" element={<Docs />} />
 							{/* <Route path="/extensionsApi" element={<ExtensionsApi />} /> */}
 						</Routes>
+						<div className="pb-8"></div>
 					</BrowserRouter>
 				</div>
 			</div>

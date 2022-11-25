@@ -1,48 +1,27 @@
-import { useEffect } from 'react';
+import Demo from './Demo';
+import Features from './Features/Features';
 
 const Home = () => {
-	useEffect(() => {
-		setTimeout(() => {
-			const fileManager = document.createElement('actions-file-manager');
-			fileManager.width = '100%';
-			fileManager.height = '90vh';
-			fileManager.color = '#7eb9a0';
-			fileManager.themeSettings = 'dark';
-			fileManager.backendHostname = 'demo.actions-file-manager.dev';
-
-			const logAction = (record, toast) => {
-				console.log('testing log: ', record);
-				// toast.success('action was successful!');
-				toast('Upload in Progress', {
-					progress: 0.5,
-					hideProgressBar: false,
-					progressClassName: 'bg-conditional-shade-4',
-				});
-			};
-
-			const logDisplayCondition = (record) => {
-				return record.mimeType.includes('image');
-			};
-
-			const actions = [
-				{
-					description: 'log',
-					function: logAction,
-					displayCondition: logDisplayCondition,
-				},
-			];
-
-			// fileManager.actions = actions;
-
-			document
-				.getElementById('actions-file-manager-container')
-				.append(fileManager);
-		}, [1000]);
-	}, []);
-
 	return (
 		<>
-			<div id="actions-file-manager-container"></div>
+			<div className="p-4">
+				<h1 className="text-4xl py-4 text-center">
+					A File Manager web component that can be implemented in vanilla
+					Javascript or any Javascript framework such as, React, Vue or Angular.
+					highest security.
+				</h1>
+				<h1 className="text-xl py-4 text-center">
+					One of the most powerful features it provides are, "Custom Actions",
+					where any file or folder can have a custom context menu action to
+					perform any Javascript action. It is also a fully self hosted solution
+					using Docker allowing full ownership of all files and data, ensuring
+					the highest security.
+				</h1>
+			</div>
+			<h1 className="text-2xl py-4">Demo</h1>
+			<Demo />
+			<h1 className="text-2xl py-4">Features</h1>
+			<Features />
 		</>
 	);
 };

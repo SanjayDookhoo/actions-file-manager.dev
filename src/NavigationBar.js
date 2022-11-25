@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Theme from './Theme';
+import { defaultConditionalColor } from './utils/constants';
 
 const NavigationBar = () => {
 	return (
@@ -31,7 +32,8 @@ const NavigationBarLink = ({ to, children }) => {
 
 	return (
 		<Link
-			className={`p-2 rounded-lg ` + (pathname == to ? 'bg-yellow-400' : '')}
+			className={`p-2 border-b-2 border-shade-1 `}
+			style={{ borderColor: pathname == to ? defaultConditionalColor : '' }}
 			to={to}
 		>
 			{children}

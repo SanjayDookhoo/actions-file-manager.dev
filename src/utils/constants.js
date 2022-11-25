@@ -4,3 +4,5 @@ export const buttonStyle =
 export const initialLocalStorageState = {
 	themeSettings: 'systemDefault',
 };
+
+export const defaultConditionalColor = '#59A3F3';

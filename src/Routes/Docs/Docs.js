@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import Backend from './Backend/Backend';
 import DocsSideMenu from './DocsSideMenu/DocsSideMenu';
 import DocsSideMenuItem from './DocsSideMenu/DocsSideMenuItem';
-
-const Introduction = () => {
-	return <div>Introduction</div>;
-};
+import Frontend from './Frontend/Frontend';
+import Introduction from './Introduction';
 
 const Test2 = () => {
 	return <div>Test2</div>;
@@ -22,9 +21,14 @@ const Test4 = () => {
 const Docs = () => {
 	const sideMenuAndContent = [
 		{
-			path: '/docs',
+			path: '/docs/introduction',
 			desc: 'Introduction',
 			element: Introduction,
+		},
+		{
+			path: '/docs/frontend',
+			desc: 'Frontend',
+			element: Frontend,
 			subMenu: [
 				{ path: '/test2', desc: 'test2', element: Test2 },
 				{
@@ -35,18 +39,23 @@ const Docs = () => {
 				},
 			],
 		},
+		{
+			path: '/docs/backend',
+			desc: 'Backend',
+			element: Backend,
+		},
 	];
 
 	return (
-		<div>TBD</div>
-		// <div className="flex">
-		// 	<div>
-		// 		<DocsSideMenu>
-		// 			<SideMenu sideMenuAndContent={sideMenuAndContent} />
-		// 		</DocsSideMenu>
-		// 	</div>
-		// 	<MyRoutes sideMenuAndContent={sideMenuAndContent} />
-		// </div>
+		// <div>TBD</div>
+		<div className="flex">
+			<div>
+				<DocsSideMenu>
+					<SideMenu sideMenuAndContent={sideMenuAndContent} />
+				</DocsSideMenu>
+			</div>
+			<MyRoutes sideMenuAndContent={sideMenuAndContent} />
+		</div>
 	);
 };
 
