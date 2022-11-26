@@ -46,10 +46,6 @@ const actions = [
 
 fileManager.actions = actions;
 
-// emptying the innerhtml in the event there is already something there
-// necessary for js frameworks that rerender
-document.getElementById('actions-file-manager-container').textContent = ''; 
-
 document
 	.getElementById('actions-file-manager-container')
 	.append(fileManager);

@@ -6,6 +6,8 @@ const Demo = () => {
 	const { theme } = useContext(GlobalContext);
 
 	useEffect(() => {
+		const element = document.querySelector('actions-file-manager');
+		if (element || !theme) return;
 		setTimeout(() => {
 			const fileManager = document.createElement('actions-file-manager');
 			fileManager.width = '100%';
@@ -35,15 +37,17 @@ const Demo = () => {
 
 			fileManager.actions = actions;
 
-			// emptying the innerhtml in the event there is already something there
-			// necessary for js frameworks that rerender
-			document.getElementById('actions-file-manager-container').textContent =
-				'';
-
 			document
 				.getElementById('actions-file-manager-container')
 				.append(fileManager);
 		}, [1000]);
+	}, [theme]);
+
+	useEffect(() => {
+		const element = document.querySelector('actions-file-manager');
+		if (element) {
+			element.themeSettings = theme;
+		}
 	}, [theme]);
 
 	return (

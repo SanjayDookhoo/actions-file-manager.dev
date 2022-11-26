@@ -26,7 +26,7 @@ function App() {
 		}
 	});
 	const { themeSettings } = localStorage;
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useState(null);
 	const [prefersColorSchemeDark, setPrefersColorSchemeDark] = useState(
 		window.matchMedia &&
 			window.matchMedia('(prefers-color-scheme: dark)').matches
