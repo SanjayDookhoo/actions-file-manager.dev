@@ -16,6 +16,7 @@ const Demo = () => {
 			fileManager.themeSettings = theme;
 			// do not specify the protocol here, since it will be added in. DO NOT USE http://demo.actions-file-manager.dev OR https://demo.actions-file-manager.dev
 			fileManager.backendHostname = 'demo.actions-file-manager.dev';
+			fileManager.tokenNameInLocalStorage = 'token'; // defaults to token if not specified
 
 			// the toast function made available is "react-toastify": "^9.0.8"
 			const logAction = (record, toast) => {
