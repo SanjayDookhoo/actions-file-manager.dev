@@ -20,11 +20,11 @@ const Test4 = () => {
 
 const Docs = () => {
 	const sideMenuAndContent = [
-		// {
-		// 	path: '/docs/introduction',
-		// 	desc: 'Introduction',
-		// 	element: Introduction,
-		// },
+		{
+			path: '/docs/introduction',
+			desc: 'Introduction',
+			element: Introduction,
+		},
 		{
 			path: '/docs/frontend',
 			desc: 'Frontend',

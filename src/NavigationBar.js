@@ -13,7 +13,7 @@ const NavigationBar = () => {
 				</Link>
 				<div>
 					<NavigationBarLink to="/">Home</NavigationBarLink>
-					<NavigationBarLink to="/docs/frontend">Docs</NavigationBarLink>
+					<NavigationBarLink to="/docs/introduction">Docs</NavigationBarLink>
 					{/* <NavigationBarLink to="/extensionsApi">
 						Extensions Api
 					</NavigationBarLink> */}
