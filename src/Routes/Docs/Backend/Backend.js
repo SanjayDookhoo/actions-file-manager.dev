@@ -29,6 +29,7 @@ GRAPHQL_ENDPOINT_WS=ws://localhost:8080/v1/graphql
 USER_MAX_SIZE_CHECK='async (userId, axios) => {
 	return 262144000; // x Bytes = 250 MegaBytes
 }'
+TOKEN_FILTER='.userMeta.userId' # if spaces are used: TOKEN_FILTER='."user meta".userId'
 `;
 const dockerCompose = `
 cd server 
