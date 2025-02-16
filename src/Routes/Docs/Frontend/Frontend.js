@@ -11,6 +11,9 @@ const html = `
 		<div id="actions-file-manager-container"></div>
 
 		<!-- Replace actions-file-manager@0 with the specific version being used in the backend, could be actions-file-manager@1 -->
+		<script src="https://cdn.jsdelivr.net/npm/web-streams-polyfill@2.0.2/dist/ponyfill.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/eligrey/Blob.js/Blob.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/streamsaver@2.0.6/StreamSaver.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/sanjaydookhoo/actions-file-manager@0/dist/actions-file-manager.min.js"></script>
 		<script src="index.js"></script>
 	</body>
